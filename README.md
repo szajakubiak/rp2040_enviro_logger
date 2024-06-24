@@ -1,4 +1,4 @@
-# rp2040_enviro_logger
+# RP2040 enviro logger
 Logger for environmental parameters based on the Arduino Nano RP2040
 
 ## Connections
