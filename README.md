@@ -4,8 +4,10 @@ Logger for environmental parameters based on the Arduino Nano RP2040
 ## Connections
 | Arduino Nano | BME280 |
 | ------------ | ------ |
-| 3V3          | 3V3    |
+| 3V3          | 2-6V   |
 | GND          | GND    |
+| A4           | SDA    |
+| A5           | SCL    |
 
 ## Links
 [Arduino Nano RP2040 cheat sheet](https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-01-technical-reference)
