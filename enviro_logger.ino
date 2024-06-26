@@ -13,7 +13,7 @@ static const int frequency = 16000;
 short sampleBuffer[512];
 // Number of audio samples read
 volatile int samplesRead;
-// Number of samples in recording
+// Target number of samples in sound recording
 // (seconds multiplied by frequency)
 static const int samplesRec = 1 * frequency;
 // Number of samples sent
