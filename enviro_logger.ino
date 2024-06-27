@@ -196,6 +196,10 @@ void loop() {
           Serial.println("No inertial measurement unit");
         }
         break;
+      
+      case 'i':
+        Serial.println("arduino");
+        break;
     }
   }
 }
