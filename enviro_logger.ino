@@ -18,6 +18,11 @@ volatile int samplesRead;
 static const int samplesRec = 0.05 * frequency;
 // Current number of samples in sound recording
 int samplesCurr = 0;
+// Number of IMU measurements
+short imuMeasurements = 5;
+// Delay between IMU measurements
+// (miliseconds)
+unsigned long imuDelay = 1000;
 
 // BME280 setup
 Adafruit_BME280 bme;
@@ -113,21 +118,28 @@ void returnEnviro() {
 
 void returnIMU() {
   // create buffer for data
-  String buf;
+  String buf = F("");
 
   float x, y, z;
-  if (IMU.accelerationAvailable()) {
-    IMU.readAcceleration(x, y, z);
+  // Read previously measured value
+  IMU.readAcceleration(x, y, z);
+  // Wait for new data available
+  while (!IMU.accelerationAvailable()) {
   }
+  IMU.readAcceleration(x, y, z);
   buf += String(x, 2);
   buf += F(",");
   buf += String(y, 2);
   buf += F(",");
   buf += String(z, 2);
   buf += F(",");
-  if (IMU.gyroscopeAvailable()) {
-    IMU.readGyroscope(x, y, z);
+  
+  // Read previously measured value
+  IMU.readGyroscope(x, y, z);
+  // Wait for new data available
+  while (!IMU.gyroscopeAvailable()) {
   }
+  IMU.readGyroscope(x, y, z);
   buf += String(x, 2);
   buf += F(",");
   buf += String(y, 2);
@@ -135,6 +147,22 @@ void returnIMU() {
   buf += String(z, 2);
   
   Serial.println(buf);
+}
+
+void loopIMU() {
+  short counter = imuMeasurements;
+  unsigned long last_timestamp = millis();
+  while (counter > 0) {
+    unsigned long now_timestamp = millis();
+    if (last_timestamp + imuDelay >= now_timestamp) {
+      last_timestamp = now_timestamp;
+      returnIMU();
+      counter--;
+    }
+    else {
+      Serial.println("Waiting");
+    }
+  }
 }
 
 void loop() {
@@ -160,9 +188,9 @@ void loop() {
         }
         break;
       
-      case 'i':
+      case 'a':
         if (imu_present) {
-          returnIMU();
+          loopIMU();
         }
         else {
           Serial.println("No inertial measurement unit");
