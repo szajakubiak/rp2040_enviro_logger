@@ -21,5 +21,5 @@ Record basic environmental parameters such as temperature, relative humidity and
 [Read audio data on Arduino Nano RP2040](https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-microphone-basics)
 
 ## TODO
+* Explain available options
 * Consider replacing error messages with error codes
-* Collect several values for single measurement from accelerometer
