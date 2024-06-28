@@ -99,7 +99,7 @@ void returnSound() {
 }
 
 void returnEnviro() {
-  // create buffer for data
+  // Create buffer for data
   String buf;
   
   bme.takeForcedMeasurement();
@@ -117,13 +117,11 @@ void returnEnviro() {
 }
 
 void returnIMU() {
-  // create buffer for data
+  // Create buffer for data
   String buf = F("");
-
   float x, y, z;
-  // Read previously measured value
-  IMU.readAcceleration(x, y, z);
-  // Wait for new data available
+
+  // Check if data is available
   while (!IMU.accelerationAvailable()) {
   }
   IMU.readAcceleration(x, y, z);
@@ -133,10 +131,8 @@ void returnIMU() {
   buf += F(",");
   buf += String(z, 2);
   buf += F(",");
-  
-  // Read previously measured value
-  IMU.readGyroscope(x, y, z);
-  // Wait for new data available
+
+  // Check if data is available
   while (!IMU.gyroscopeAvailable()) {
   }
   IMU.readGyroscope(x, y, z);
@@ -154,13 +150,10 @@ void loopIMU() {
   unsigned long last_timestamp = millis();
   while (counter > 0) {
     unsigned long now_timestamp = millis();
-    if (last_timestamp + imuDelay >= now_timestamp) {
-      last_timestamp = now_timestamp;
+    if (now_timestamp >= last_timestamp + imuDelay) {
       returnIMU();
+      last_timestamp = now_timestamp;
       counter--;
-    }
-    else {
-      Serial.println("Waiting");
     }
   }
 }
