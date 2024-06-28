@@ -19,10 +19,10 @@ static const int samplesRec = 0.05 * frequency;
 // Current number of samples in sound recording
 int samplesCurr = 0;
 // Number of IMU measurements
-short imuMeasurements = 5;
+short imuMeasurements = 50;
 // Delay between IMU measurements
 // (miliseconds)
-unsigned long imuDelay = 1000;
+unsigned long imuDelay = 100;
 
 // BME280 setup
 Adafruit_BME280 bme;
