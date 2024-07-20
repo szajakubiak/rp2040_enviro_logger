@@ -5,7 +5,7 @@ Logger for environmental parameters based on the Arduino Nano RP2040 Connect
 Record basic environmental parameters such as temperature, relative humidity and air pressure as well as short samples of sound and accelerometer readings.
 
 ## Methods
-[Arduino Nano RP2040 Connect](https://docs.arduino.cc/hardware/nano-rp2040-connect/) has a built-in microphone and combined accelerometer and gyroscope with temperature sensor. It's also capable of WiFi and BLE communication. To further expand the capabilities of the device I connected the BME280 temperature, relative humidity and air pressure sensor mounted on the [Pimoroni breakout board](https://shop.pimoroni.com/products/bme280-breakout).
+[Arduino Nano RP2040 Connect](https://docs.arduino.cc/hardware/nano-rp2040-connect/) has a built-in microphone and combined accelerometer and gyroscope with temperature sensor. It's also capable of WiFi and Bluetooth 4.2 communication (Bluetooth Classic and Bluetooth Low Energy). To further expand the capabilities of the device the [Pimoroni BME280 breakout board](https://shop.pimoroni.com/products/bme280-breakout) was added capable of measuring temperature, relative humidity and air pressure.
 
 ## Connections
 | Arduino Nano | BME280 |
