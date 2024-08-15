@@ -15,6 +15,15 @@ Record basic environmental parameters such as temperature, relative humidity and
 | A4           | SDA    |
 | A5           | SCL    |
 
+## Known requests
+Device sends the data in the responce to the request received via serial port.
+| Request | Data type              |
+| ------- | ---------------------- |
+| s       | sound sample           |
+| e       | environment parameters |
+| a       | accelerometer data     |
+| i       | identifcation string   |
+
 ## Links
 [Arduino Nano RP2040 cheat sheet](https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-01-technical-reference)
 
