@@ -22,7 +22,7 @@ Device sends the data in the responce to the request received via serial port.
 | s       | sound sample           |
 | e       | environment parameters |
 | a       | accelerometer data     |
-| i       | identifcation string   |
+| i       | identification string  |
 
 ## Links
 [Arduino Nano RP2040 cheat sheet](https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-01-technical-reference)
