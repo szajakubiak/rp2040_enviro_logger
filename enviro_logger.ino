@@ -23,6 +23,8 @@ short imuMeasurements = 50;
 // Delay between IMU measurements
 // (miliseconds)
 unsigned long imuDelay = 100;
+// Identification string
+char identification[] = "arduino";
 
 // BME280 setup
 Adafruit_BME280 bme;
@@ -191,7 +193,7 @@ void loop() {
         break;
       
       case 'i':
-        Serial.println("arduino");
+        Serial.println(identification);
         break;
     }
   }
