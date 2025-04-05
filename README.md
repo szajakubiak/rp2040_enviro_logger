@@ -15,8 +15,8 @@ Record basic environmental parameters such as temperature, relative humidity and
 | A4           | SDA    |
 | A5           | SCL    |
 
-## Known requests
-Device sends the data in the responce to the request received via serial port.
+## Data request options
+Measurements are triggered by sending to the device a single char command via serial port connection:
 | Request | Data type              |
 | ------- | ---------------------- |
 | s       | sound sample           |
