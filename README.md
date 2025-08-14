@@ -31,4 +31,5 @@ Measurements are triggered by sending to the device a single char command via se
 
 ## TODO
 * Explain available options
+* Add examples of returned data structures
 * Consider replacing error messages with error codes
